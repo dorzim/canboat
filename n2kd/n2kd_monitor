@@ -213,11 +213,11 @@ for (;;)
         }
         elsif ($ACTISENSE_SECONDARY)
         {
-          exec '/bin/bash', '-c', "actisense-serial -t 10 $ACTISENSE_PRIMARY | actisense-serial $ACTISENSE_SECONDARY -t 10 | analyzer $ANALYZER_OPTIONS -json | n2kd $N2KD_OPTIONS";
+          exec '/bin/bash', '-c', "actisense-serial -r -t 10 $ACTISENSE_PRIMARY | actisense-serial $ACTISENSE_SECONDARY -t 10 | n2kd $N2KD_OPTIONS";
         }
         else
         {
-          exec '/bin/bash', '-c', "actisense-serial -t 10 $ACTISENSE_PRIMARY | n2kd $N2KD_OPTIONS";
+          exec '/bin/bash', '-c', "actisense-serial -r -t 10 $ACTISENSE_PRIMARY | n2kd $N2KD_OPTIONS";
         }
       }
       elsif ($n2kd)
